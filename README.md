@@ -1,4 +1,6 @@
-## Creating a dev space and CAP project in SAP Business Application Studio
+### Guide for creating a simple CAP application with XSUAA authentication
+
+#### Creating a dev space and CAP project in SAP Business Application Studio
 
 1.	Create a new “Full Stack Cloud Application” dev space in BAS
   ![image](https://github.com/tszalama/cap-xsuaa-app-demo/assets/96135418/c50bc18c-fb46-4197-b44d-02a7eb4774f4)
@@ -15,7 +17,7 @@
   If you run “cds watch” in the terminal, you will see that you have a functioning OData service layer already:
   ![image](https://github.com/tszalama/cap-xsuaa-app-demo/assets/96135418/19ecc140-dcbc-4ba5-a098-13f481d12bad)
 
-## Creating a simple HTML app
+#### Creating a simple HTML app
 
 4.	Run “cds add approuter” which creates the following artifacts:
   ![image](https://github.com/tszalama/cap-xsuaa-app-demo/assets/96135418/82b74241-a1bf-4ab9-989a-33a60e600c82)
@@ -32,7 +34,7 @@
   ![image](https://github.com/tszalama/cap-xsuaa-app-demo/assets/96135418/bebb6e31-09a9-4457-b18e-476fa4a49ed1)
 
  
-## Configure XSUAA authorization and restrictions
+#### Configure XSUAA authorization and restrictions
 
 8.	Let’s add a role-based access restriction to the Books entity:
   ![image](https://github.com/tszalama/cap-xsuaa-app-demo/assets/96135418/72562ee2-c9fc-4aed-a5ad-f1543c0024b9)
@@ -67,7 +69,7 @@
   You should now be able to see your user access scopes via “/user-api/attributes”:
   ![image](https://github.com/tszalama/cap-xsuaa-app-demo/assets/96135418/31172b97-3014-464c-b258-001048b86439)
 
-## Configure an in-memory database
+#### Configure an in-memory database
 
 14.	Due to limitations with our BTP tenant (no HANA instance available), in this demo we only use an in-memory database which deletes all data on instance restart. To configure this, add the following to package.json:
   ![image](https://github.com/tszalama/cap-xsuaa-app-demo/assets/96135418/267036b4-a21a-4b04-afa8-e0b00dcf9338)
@@ -75,7 +77,7 @@
   ![image](https://github.com/tszalama/cap-xsuaa-app-demo/assets/96135418/6a0b0ae0-fef1-4b3c-a239-53600e3c5521)
   The cp -r db/data… command makes sue that the sample data is copied over to the production build during deployment.
 
-## Deploy the application to Cloud Foundry
+#### Deploy the application to Cloud Foundry
 
 15.	Build the project via the mta.yaml file:
   ![image](https://github.com/tszalama/cap-xsuaa-app-demo/assets/96135418/ce26dc0b-774d-43c5-98d8-bc1fef83a5e1)
@@ -83,7 +85,7 @@
 16.	Deploy the generated archive:
   ![image](https://github.com/tszalama/cap-xsuaa-app-demo/assets/96135418/78181aad-920e-409a-acac-973b255cad69)
  
-## Launch the application
+#### Launch the application
 
 17.	Go to spaces and open your dev space
   ![image](https://github.com/tszalama/cap-xsuaa-app-demo/assets/96135418/f4f82169-1c80-4a60-a823-bc3a726fede9)
