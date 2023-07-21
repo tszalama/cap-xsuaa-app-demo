@@ -1,0 +1,36 @@
+{
+  "name": "bookstore-demo",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "@sap/xssec": "^3.2.18",
+    "express": "^4",
+    "passport": "^0.6.0",
+    "sqlite3": "^5.0.2"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "database": ":memory:"
+        }
+      },
+      "auth": "xsuaa"
+    },
+    "features": {
+      "in_memory_db": true
+    }
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^7"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  }
+}

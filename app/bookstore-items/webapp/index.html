@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books Catalog</title>
+</head>
+<body>
+    <h1>Books Catalog</h1>
+    <table id="booksTable">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Stock</th>
+        </tr>
+    </table>
+
+    <script>
+        // Function to fetch the data from the OData service and populate the table
+        async function fetchBooksData() {
+            try {
+                const response = await fetch('/odata/v4/catalog/Books');
+                const data = await response.json();
+                const books = data.value;
+
+                const table = document.getElementById('booksTable');
+                for (const book of books) {
+                    const row = table.insertRow();
+                    const idCell = row.insertCell();
+                    const titleCell = row.insertCell();
+                    const stockCell = row.insertCell();
+
+                    idCell.textContent = book.ID;
+                    titleCell.textContent = book.title;
+                    stockCell.textContent = book.stock;
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // Fetch the data on page load
+        fetchBooksData();
+    </script>
+</body>
+</html>
